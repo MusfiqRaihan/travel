@@ -1,29 +1,119 @@
-<?php
-session_start();
-include('models/dbconnection.php');
-?>
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Welcome To Tavel & Tourism Site</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/fonts/all.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome.min.css">
-  </head>
-  <body>
-<?php include ('includes/header.php'); ?>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Welcome To Travel & Tourism</title>
+    <link rel="stylesheet" href="assets/font/flaticon.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/dd.css">
+    <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
+    <link href="assets/css/jquery.fancybox.min.html" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style-1.css">
+    <link rel="stylesheet" href="assets/css/responsive-1.css">
+</head>
 
+<body>
+
+    <div id="preloader">
+        <div id="loading-center">
+            <img src="assets/images/white.gif" alt="">
+        </div>
+    </div>
+
+    <a href="#" id="back-top-btn">
+       <i class="fas fa-angle-double-up"></i>
+     </a>
+
+  <?php include 'includes/header.php' ?>
+
+    <section id="banner_part" class="banner-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 banner-center">
+                    <div class="banner-text-t">
+
+                        <h2>Discover</h2>
+                        <h5>The world together</h5>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="about-us" class="about-us mb-5">
+          <div class="container">
+             <div class="row">
+                 <div class="col-lg-6 col-md-12">
+                     <div class="row">
+              <div class="col-md-4">
+                      <div class="heading">
+                          <h4>about us</h4>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+              <div class="col-md-10">
+                      <div class="sub-header">
+                          <h3>Explore more about our
+  travel agency</h3>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                    <div class="col-md-12">
+                    <div class="about-para">
+                        <p>Travel & Tourism is a full-service Outbound Tour Operator in Bangladesh. The founder of Travel & Tourism is a 100% tourism professional with knowledge in most of the destinations and services in the world for people to enjoy.</p>
+
+                          <p>Our specialized departments with expertise offer a variety of services. Each department works independently to provide best services to our customers& clients and become the best travel agency in Bangladesh, focusing on creating friendship and a long lasting relationship with our beloved clients.</p>
+                    </div>
+                    <div class="about-btn travel-btn">
+						<a href="view/aboutus.php" class="btn-4">Explore More</a>
+					</div>
+                </div>
+
+            </div>
+               </div>
+               <div class="col-lg-3 col-md-6">
+                    <div class="about-f-img">
+                        <img src="assets/images/about-image-1.jpg" class="img-fluid" alt="about">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="about-s-img">
+                        <img src="assets/images/about-image-2.jpg" class="img-fluid" alt="about">
+                    </div>
+                </div>
+           </div>
+
+        </div>
+    </section>
 
 
 
 
 <?php include 'includes/footer.php'; ?>
-  </body>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-  <script src="assets/fonts/all.min.js"></script>
-  <script src="assets/fonts/fontawesome.min.js"></script>
+
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/jquery-migrate-3.0.0.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/waypoints.min.html"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="assets/js/jquery.dd.min.js"></script>
+    <script src="assets/js/mixitup.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/SmoothScroll.js"></script>
+    <script src="assets/js/script.js"></script>
+
+</body>
+
 </html>

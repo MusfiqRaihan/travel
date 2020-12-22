@@ -4,18 +4,56 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Travel & Tourism - LogIn</title>
+	<link rel="stylesheet" src="../assets/css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-  <link rel="stylesheet" src="../assets/css/style.css">
+
+
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.padding_global{
+		padding: 130px 0;
+	}
+	body{
+			background-image: url("../assets/images/b.jpg");
+			width:100%;
+			height: 100vh;
+			background-size: cover;
+			position: relative;
+			background-position: center center;
+			background-repeat: no-repeat;
+		}
+		body::before {
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	    width: 100%;
+	    height: 100vh;
+	    content: "";
+	    background: #000000;
+	    opacity: 0.4;
+	}
+		input.form-control {
+		    border-radius: 17px;
+				padding: 0 24px;
+		}
+		.btn-style {
+		    padding: 10px 30px;
+		    border-radius: 50px;
+		}
+	</style>
+
 
 <body>
 
 <div class="container">
 
-  <div class="row my-5">
+  <div class="row padding_global">
       <div class="col-md-6 offset-3">
-        <h2 class="text-center">Travel & Tourism</h2>
-        <h6 class="text-center text-muted mt-2">Login Form</h6>
-        <hr />
+        <h2 class="text-center"><a style="text-decoration:none;color:white;" href="../index.php">Travel & Tourism</a></h2>
+        <h6 class="text-center mt-2 text-white">Login Form</h6>
         <form action="" method="post" id="" name="login">
           <p style="font-size:16px; color:red" align="center">
             <?php
@@ -47,8 +85,8 @@
             <input class="form-control" placeholder="Password" name="password" type="password" value="" required="true">
           </div>
           <div class="text-center">
-            <button type="submit" value="login" name="login" class="btn btn-outline-danger">Login</button>
-            <a href="register.php" class="btn btn-outline-success ml-2">Register</a>
+            <button type="submit" value="login" name="login" class="btn btn-danger btn-style">Login</button>
+            <a href="register.php" class="btn btn-success ml-2 btn-style">Register</a>
           </div>
         </form>
 

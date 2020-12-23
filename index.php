@@ -1,3 +1,9 @@
+<?php
+  session_start();
+include('models/dbconnection.php');
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,17 +24,23 @@
 
 <body>
 
-    <div id="preloader">
+    <!-- <div id="preloader">
         <div id="loading-center">
             <img src="assets/images/white.gif" alt="">
         </div>
-    </div>
+    </div> -->
 
     <a href="#" id="back-top-btn">
        <i class="fas fa-angle-double-up"></i>
      </a>
 
-  <?php include 'includes/header.php' ?>
+
+
+<?php include 'includes/header.php' ?>
+
+
+
+
 
     <section id="banner_part" class="banner-1">
         <div class="container">

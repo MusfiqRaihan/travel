@@ -1,11 +1,11 @@
 <?php
 session_start();
 include('../models/dbconnection.php');
-if (strlen($_SESSION['detsuid']==0)) {
+if ($_SESSION['logedin']==0) {
   header('location:logout.php');
   } else{
 
-
+echo $_SESSION['logedin'];
 
   ?>
 

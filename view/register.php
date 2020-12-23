@@ -53,7 +53,7 @@ body{
 <div class="container padding_global">
   <div class="row">
       <div class="col-md-6 offset-3" style="opacity:0.9">
-        <h2 class="text-center"><a style="text-decoration:none;color:white;" href="../index.php"></a>Travel & Tourism</h2>
+        <h2 class="text-center"><a style="text-decoration:none;color:white;" href="http://localhost/travel/index.php">Travel & Tourism</a></h2>
         <h6 class="text-center mt-2 text-white">Register Form</h6>
 
         <form action="" method="post" id="" name="signup" onsubmit="return checkpass();">
@@ -62,8 +62,8 @@ body{
     <?php
     if(isset($_POST['submit']))
       {
-        $fname=$_POST['fullname'];
-        $mobno=$_POST['mobilenumber'];
+        $fullname=$_POST['fullname'];
+        $mobilenumber=$_POST['mobilenumber'];
         $email=$_POST['email'];
         $password=md5($_POST['password']);
 
@@ -74,7 +74,7 @@ body{
         }
         else{
         $query=mysqli_query($con, "insert into user(fullname, mobilenumber, email,  password)
-         value('$fname', '$mobno', '$email', '$password')");
+         value('$fullname', '$mobilenumber', '$email', '$password')");
         if ($query) {
             $msg="You have successfully registered";
       }
@@ -84,6 +84,7 @@ body{
         }
       }
       echo $msg;
+
     }
  ?>
           </p>

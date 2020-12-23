@@ -1,6 +1,5 @@
 <?php
 session_start();
-session_unset();
-session_destroy();
-header('location:../index.php');
+$_SESSION['logedin']= 0;
+header('location:http://localhost/travel/index.php');
 ?>

@@ -63,7 +63,7 @@ include('../models/dbconnection.php');
                             <img style="height:45vh;" src="../assets/images/bus.jpg" class="img-fluid person" alt="destination">
                             <div class="overlay">
                                 <div class="overlay_shape">
-                                    <a href="" class="view-all">Book Now<i class="fas fa-long-arrow-alt-right"></i></a>
+                                    <a href="http://localhost/travel/controller/busticket.php" class="view-all">Book Now<i class="fas fa-long-arrow-alt-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +79,7 @@ include('../models/dbconnection.php');
                             <img style="height:45vh;" src="../assets/images/train.jpg" class="img-fluid person" alt="destination">
                             <div class="overlay">
                               <div class="overlay_shape">
-                                  <a href="" class="view-all">Book Now<i class="fas fa-long-arrow-alt-right"></i></a>
+                                  <a href="http://localhost/travel/controller/trainticket.php" class="view-all">Book Now<i class="fas fa-long-arrow-alt-right"></i></a>
                               </div>
                             </div>
                         </div>
@@ -95,7 +95,7 @@ include('../models/dbconnection.php');
                             <img style="height:45vh;" src="../assets/images/plane.jpg" class="img-fluid person" alt="destination">
                             <div class="overlay">
                               <div class="overlay_shape">
-                                  <a href="" class="view-all">Book Now<i class="fas fa-long-arrow-alt-right"></i></a>
+                                  <a href="http://localhost/travel/controller/planeticket.php" class="view-all">Book Now<i class="fas fa-long-arrow-alt-right"></i></a>
                               </div>
                             </div>
                         </div>

@@ -52,7 +52,7 @@
 
   <div class="row padding_global">
       <div class="col-md-6 offset-3">
-        <h2 class="text-center"><a style="text-decoration:none;color:white;" href="../index.php">Travel & Tourism</a></h2>
+        <h2 class="text-center"><a style="text-decoration:none;color:white;" href="http://localhost/travel/index.php">Travel & Tourism</a></h2>
         <h6 class="text-center mt-2 text-white">Login Form</h6>
         <form action="" method="post" id="" name="login">
           <p style="font-size:16px; color:red" align="center">
@@ -67,7 +67,7 @@
                 $query=mysqli_query($con,"select id from user where  email='$email' && password='$password' ");
                 $ret=mysqli_fetch_array($query);
                 if($ret>0){
-                  $_SESSION['detsuid']=$ret['id'];
+                  $_SESSION['logedin']=$ret['id'];
                  header('location:dashboard.php');
                 }
                 else{

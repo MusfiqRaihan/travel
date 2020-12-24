@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 include('../models/dbconnection.php');
@@ -46,7 +47,7 @@ include('../models/dbconnection.php');
 
             <div class="row">
               <div class="col-md-5">
-                <h4>Bus Ticket Applying Procedure</h4>
+                <h4>Cottage Booking Procedure</h4>
 
               <?php
               $id = $_SESSION['logedin'];
@@ -73,16 +74,14 @@ include('../models/dbconnection.php');
                       $row = mysqli_fetch_array($query);
 
                       $user_id=$row['id'];
-                      $seat=$_POST['seat'];
                       $type=$_POST['type'];
-                      $fromplace=$_POST['fromplace'];
-                      $toplace=$_POST['toplace'];
-                      $startdate=$_POST['startdate'];
-                      $returndate=$_POST['returndate'];
+                      $stay=$_POST['stay'];
+                      $arival=$_POST['arival'];
                       $address=$_POST['address'];
 
-                      $query=mysqli_query($con, "insert into bus_ticket(user_id,seat,type,fromplace,toplace,startdate,returndate,address)
-                       value('$user_id', '$seat', '$type', '$fromplace', '$toplace', '$startdate', '$returndate', '$address')");
+                      $query=mysqli_query($con, "insert into cottage(user_id,type,stay,arival,address)
+                       value('$user_id', '$type', '$stay', '$arival', '$address')");
+
                       if ($query) {
                           $msg="You have successfully booked bus tickets"; ?>
                           <script type="text/javascript">
@@ -102,94 +101,50 @@ include('../models/dbconnection.php');
 
 
                   <div class="row">
-                    <div class="col-md-6">
 
-
-                      <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <label class="input-group-text" for="inputGroupSelect01">Class</label>
-                        </div>
-                        <select class="custom-select" id="inputGroupSelect01" name="seat">
-                          <option selected>Choose...</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
-                          <option value="4">Four</option>
-                          <option value="5">Five</option>
-                        </select>
-                      </div>
-
-                      <!-- <div class="form-group">
-                          <input class="form-control" placeholder="Full Name" name="fullname" type="text" required="true">
-                      </div> -->
-
-                    </div>
-
-                    <div class="col-md-6">
+                    <div class="col-md-12 mb-3">
 
                       <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline1" name="type" value="AC" class="custom-control-input">
-                        <label class="custom-control-label" for="customRadioInline1">AC</label>
+                        <input type="radio" id="customRadioInline1" name="type" value="Small" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline1">Small</label>
                       </div>
                       <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline2" name="type" value="NonAC" class="custom-control-input">
-                        <label class="custom-control-label" for="customRadioInline2">Non AC</label>
+                        <input type="radio" id="customRadioInline2" name="type" value="Medium" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline2">Medium</label>
+                      </div>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline3" name="type" value="Large" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline3">Large</label>
+                      </div>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline4" name="type" value="Extra Large With Garden" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline4">Extra Large With Garden</label>
                       </div>
 
-                      <!-- <div class="form-group">
-                        <input class="form-control" placeholder="E-mail" name="email" type="email" required="true">
-                      </div> -->
                     </div>
 
                     <div class="col-md-6">
-                      <div class="input-group mb-3">
+                      <div class="input-group" style="margin-top:32px;">
                         <div class="input-group-prepend">
-                          <label class="input-group-text" for="inputGroupSelect01">From</label>
+                          <label class="input-group-text" for="inputGroupSelect01">Stayed</label>
                         </div>
-                        <select class="custom-select" id="inputGroupSelect01" name="fromplace">
+                        <select class="custom-select" id="inputGroupSelect01" name="stay">
                           <option selected>Choose...</option>
-                          <option value="Dhaka">Dhaka</option>
-                          <option value="Jessore">Jessore</option>
-                          <option value="Khulna">Khulna</option>
-                          <option value="Chittagong">Chittagong</option>
-                          <option value="Rajshahi">Rajshahi</option>
+                          <option value="One Night">One Night</option>
+                          <option value="Two Nights">Two Nights</option>
+                          <option value="Three Nights">Three Nights</option>
+                          <option value="Four Nights">Four Nights</option>
                         </select>
                       </div>
                     </div>
-
-
-                    <div class="col-md-6">
-                      <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <label class="input-group-text" for="inputGroupSelect01">To</label>
-                        </div>
-                        <select class="custom-select" id="inputGroupSelect01" name="toplace">
-                          <option selected>Choose...</option>
-                          <option value="Dhaka">Dhaka</option>
-                          <option value="Jessore">Jessore</option>
-                          <option value="Khulna">Khulna</option>
-                          <option value="Chittagong">Chittagong</option>
-                          <option value="Rajshahi">Rajshahi</option>
-                        </select>
-                      </div>
-                    </div>
-
 
 
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="inputAddress">Date of Journey</label>
-                        <input type="date" class="form-control" name="startdate" id="inputAddress" placeholder="10/01/2021">
+                        <label for="inputAddress">Date of Arrival</label>
+                        <input type="date" class="form-control" name="arival" id="inputAddress" placeholder="10/01/2021">
                       </div>
                     </div>
-
-                    <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="inputAddress">Return Date </label><small> (Optional)</small>
-                        <input type="date" class="form-control" name="returndate" id="inputAddress" placeholder="20/01/2021">
-                      </div>
-                    </div>
-
 
 
                     <div class="col-md-12">
@@ -200,14 +155,10 @@ include('../models/dbconnection.php');
                     </div>
 
 
-
-
-
-
                   </div>
 
                   <div class="text-center">
-                    <a href="http://localhost/travel/view/bookticket.php" class="btn btn-danger btn-style">Cancel</a>
+                    <a href="http://localhost/travel/view/accomodation.php" class="btn btn-danger btn-style">Cancel</a>
                     <button type="submit" value="submit" name="submit" class="btn btn-success btn-stylesheet ml-2">Submit</button>
                   </div>
                 </form>

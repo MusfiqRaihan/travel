@@ -64,13 +64,20 @@
               {
                 $email=$_POST['email'];
                 $password=md5($_POST['password']);
-                $query=mysqli_query($con,"select id from user where  email='$email' && password='$password' ");
+                $query=mysqli_query($con,"select id,userType from user where  email='$email' && password='$password' ");
                 $ret=mysqli_fetch_array($query);
                 if($ret>0){
-                  $_SESSION['logedin']=$ret['id'];
-                 header('location:dashboard.php');
-                }
-                else{
+									if($ret['userType']=="Admin"){
+										$_SESSION['logedin']=$ret['id']; ?>
+										<script type="text/javascript">
+											window.location = "http://localhost/travel/admin/admin.php";
+											</script>
+						<?php	 }else{
+								 $_SESSION['logedin']=$ret['id'];
+								header('location:dashboard.php');
+							 }
+
+						 }else{
                 $msg="Invalid Credentials";
                 }
                 echo $msg;

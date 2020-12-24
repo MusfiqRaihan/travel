@@ -14,8 +14,19 @@
                     <li class="nav-item"><a class="nav-link" href="http://localhost/travel/view/accomodation.php">Accomodations</a></li>
                     <li class="nav-item"><a class="nav-link" href="http://localhost/travel/view/tourpackage.php">Tour Packages</a></li>
                     <li class="nav-item"><a class="nav-link" href="http://localhost/travel/view/aboutus.php">About Us</a></li>
-                    <?php if (isset($_SESSION['logedin']) && $_SESSION['logedin'] != 0){ ?>
-                    <li class="nav-item"><a class="nav-link" href="http://localhost/travel/controller/logout.php">Logout</a></li>
+                    <?php if (isset($_SESSION['logedin']) && $_SESSION['logedin'] != 0){
+                      $id = $_SESSION['logedin'];
+                      $query = mysqli_query($con, "SELECT fullname,email,mobilenumber FROM user where id='$id'");
+                      $row = mysqli_fetch_array($query);
+                       ?>
+
+                    <li class="dropdown nav-item"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"
+                       role="button" aria-haspopup="true" aria-expanded="false"><?php echo $row["fullname"] ?></a>
+                          <ul class="dropdown-menu maindrop_menu">
+                              <li><a href="http://localhost/travel/view/dashboard.php">Dashboard</a></li>
+                              <li><a href="http://localhost/travel/controller/logout.php">Logout</a></li>
+                          </ul>
+                      </li>
                     <?php } ?>
                   </ul>
                   <ul class="login_menu navbar-right nav-sign">

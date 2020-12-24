@@ -24,11 +24,11 @@ include('models/dbconnection.php');
 
 <body>
 
-    <!-- <div id="preloader">
+    <div id="preloader">
         <div id="loading-center">
             <img src="assets/images/white.gif" alt="">
         </div>
-    </div> -->
+    </div>
 
     <a href="#" id="back-top-btn">
        <i class="fas fa-angle-double-up"></i>

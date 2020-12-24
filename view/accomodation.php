@@ -64,7 +64,7 @@ include('../models/dbconnection.php');
             <div class="card-body">
               <h5 class="card-title mb-2">Hotel</h5>
               <p class="card-text mb-2">Tropical Daisy is a 3-star hotel offering modern guestrooms with a private bathroom. 200 metres from Banani 11 Shopping District, the hotel has a 24-hour reception and 2 dining options.</p>
-              <a class="btn btn-outline-primary" href="">Book Now</a>
+              <a class="btn btn-outline-primary" href="http://localhost/travel/controller/hotel.php">Book Now</a>
             </div>
           </div>
         </div>
@@ -77,7 +77,7 @@ include('../models/dbconnection.php');
             <div class="card-body">
               <h5 class="card-title mb-2">Cottage</h5>
               <p class="card-text mb-2">It may carry the connotation of being an old or old-fashioned building. In modern usage, a cottage is usually a modest, often cosy dwelling, typically in a rural or semi-rural location</p>
-              <a class="btn btn-outline-primary" href="">Book Now</a>
+              <a class="btn btn-outline-primary" href="http://localhost/travel/controller/cottage.php">Book Now</a>
             </div>
           </div>
           <div class="col-md-4">
@@ -96,7 +96,7 @@ include('../models/dbconnection.php');
             <div class="card-body">
               <h5 class="card-title mb-2">Five Star Hotel</h5>
               <p class="card-text mb-2">Offering an outdoor pool, spa and fitness centre, TThe Olives is situated with in Gulshan diplomatic zone, 700 meters from High Commission of India in Dhaka.</p>
-              <a class="btn btn-outline-primary" href="">Book Now</a>
+              <a class="btn btn-outline-primary" href="http://localhost/travel/controller/fivehotel.php">Book Now</a>
             </div>
           </div>
         </div>

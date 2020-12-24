@@ -46,7 +46,7 @@ include('../models/dbconnection.php');
 
             <div class="row">
               <div class="col-md-5">
-                <h4>Bus Ticket Applying Procedure</h4>
+                <h4>Train Ticket Applying Procedure</h4>
 
               <?php
               $id = $_SESSION['logedin'];
@@ -81,10 +81,10 @@ include('../models/dbconnection.php');
                       $returndate=$_POST['returndate'];
                       $address=$_POST['address'];
 
-                      $query=mysqli_query($con, "insert into bus_ticket(user_id,seat,type,fromplace,toplace,startdate,returndate,address)
+                      $query=mysqli_query($con, "insert into train_ticket(user_id,seat,type,fromplace,toplace,startdate,returndate,address)
                        value('$user_id', '$seat', '$type', '$fromplace', '$toplace', '$startdate', '$returndate', '$address')");
                       if ($query) {
-                          $msg="You have successfully booked bus tickets"; ?>
+                          $msg="You have successfully booked train tickets"; ?>
                           <script type="text/javascript">
                             window.location = "http://localhost/travel/index.php";
                             </script>
@@ -107,7 +107,7 @@ include('../models/dbconnection.php');
 
                       <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                          <label class="input-group-text" for="inputGroupSelect01">Class</label>
+                          <label class="input-group-text" for="inputGroupSelect01">Seats</label>
                         </div>
                         <select class="custom-select" id="inputGroupSelect01" name="seat">
                           <option selected>Choose...</option>
@@ -135,10 +135,11 @@ include('../models/dbconnection.php');
                         <input type="radio" id="customRadioInline2" name="type" value="NonAC" class="custom-control-input">
                         <label class="custom-control-label" for="customRadioInline2">Non AC</label>
                       </div>
+                      <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="customRadioInline3" name="type" value="Berth" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadioInline3">Berth</label>
+                      </div>
 
-                      <!-- <div class="form-group">
-                        <input class="form-control" placeholder="E-mail" name="email" type="email" required="true">
-                      </div> -->
                     </div>
 
                     <div class="col-md-6">

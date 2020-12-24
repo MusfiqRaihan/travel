@@ -1,15 +1,20 @@
 <?php
-session_start();
+  session_start();
 include('../models/dbconnection.php');
 ?>
 
+<?php if (isset($_SESSION['logedin']) && $_SESSION['logedin'] != 0){
+  $id = $_SESSION['logedin'];
+  $query = mysqli_query($con, "SELECT fullname,email,mobilenumber FROM user where id='$id'");
+  $row = mysqli_fetch_array($query);
+   ?>
 
  <!DOCTYPE html>
  <html lang="en">
  <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-     <title></title>
+     <title>Travel & Tourism - Book Bus Ticket page</title>
      <link rel="stylesheet" href="../assets/font/flaticon.css">
      <link rel="stylesheet" href="../assets/css/all.min.css">
      <link rel="stylesheet" href="../assets/css/animate.min.css">
@@ -247,3 +252,11 @@ include('../models/dbconnection.php');
 </body>
 
 </html>
+
+<?php } ?>
+
+<?php if (isset($_SESSION['logedin']) && $_SESSION['logedin'] == 0) { ?>
+  <script type="text/javascript">
+    window.location = "http://localhost/travel/view/login.php";
+    </script>
+<?php } ?>

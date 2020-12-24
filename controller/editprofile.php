@@ -14,7 +14,7 @@ include('../models/dbconnection.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Travel & Tourism - <?php echo $row["fullname"] ?>'s Dasboard</title>
+    <title>Travel & Tourism - Edit <?php echo $row["fullname"] ?>'s Profile</title>
     <link rel="stylesheet" href="../assets/font/flaticon.css">
     <link rel="stylesheet" href="../assets/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/animate.min.css">
@@ -50,17 +50,51 @@ include('../models/dbconnection.php');
 <div class="container">
   <div class="row py-5">
     <div class="col-md-6 offset-3">
-      <div class="card">
-        <h5 class="card-header">Profile Details</h5>
-        <div class="card-body">
-          <h5 class="card-title mb-3"><?php echo $row['fullname'] ?>'s Profile</h5>
-          <p style="padding-bottom:10px;"><b>Email:</b> <?php echo $row["email"] ?></p>
-          <p style="padding-bottom:10px;"><b>Phone:</b> +880-<?php echo $row["mobilenumber"] ?></p>
-          <div class="text-left">
-            <a href="http://localhost/travel/controller/editprofile.php" class="btn btn-primary">Edit Profile</a>
-          </div>
+
+      <form action="" method="post" id="" name="signup" onsubmit="return checkpass();">
+        <p style="font-size:16px; color:red" align="center">
+
+  <?php
+  if(isset($_POST['submit']))
+    {
+      $fullname=$_POST['fullname'];
+      $mobilenumber=$_POST['mobilenumber'];
+
+      $query=mysqli_query($con, "UPDATE user SET fullname='$fullname', mobilenumber='$mobilenumber' WHERE id='$id'");
+      if ($query) {
+          $msg="You have successfully Updated"; ?>
+
+          <script type="text/javascript">
+            window.location = "http://localhost/travel/view/dashboard.php";
+            </script>
+
+  <?php  }
+    else
+      {
+        $msg="Something Went Wrong. Please try again!";
+      }
+    echo $msg;
+
+  }
+?>
+        </p>
+
+        <div class="form-group">
+            <input class="form-control" placeholder="Full Name" name="fullname" type="text" value="<?php echo $row['fullname'] ?>">
         </div>
-      </div>
+        <div class="form-group">
+          <input class="form-control" placeholder="E-mail" name="email" type="email" value="<?php echo $row['email'] ?>" disabled>
+        </div>
+        <div class="form-group">
+          <input type="integer" class="form-control" id="mobilenumber" name="mobilenumber" placeholder="Mobile Number e.g. 1729458458" maxlength="10" pattern="[0-9]{10}" value="<?php echo $row['mobilenumber'] ?>">
+        </div>
+        <div class="text-center">
+          <button type="submit" value="submit" name="submit" class="btn btn-success btn-style">Update</button>
+          <a href="http://localhost/travel/view/dashboard.php" class="btn btn-danger ml-2 btn-style">Cancel</a>
+        </div>
+      </form>
+
+
     </div>
   </div>
 </div>

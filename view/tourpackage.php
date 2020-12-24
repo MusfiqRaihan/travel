@@ -63,7 +63,7 @@ include('../models/dbconnection.php');
                             <img src="../assets/images/tour-package-4.jpg" class="img-fluid person" alt="destination">
                             <div class="overlay">
                                 <div class="overlay_shape">
-                                    <a href="" class="view-all">Book Now<i class="fas fa-long-arrow-alt-right"></i></a>
+                                    <a href="http://localhost/travel/controller/smallpackage.php" class="view-all">Book Now<i class="fas fa-long-arrow-alt-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@ include('../models/dbconnection.php');
                             <img src="../assets/images/tour-package-5.jpg" class="img-fluid person" alt="destination">
                             <div class="overlay">
                               <div class="overlay_shape">
-                                  <a href="" class="view-all">Book Now<i class="fas fa-long-arrow-alt-right"></i></a>
+                                  <a href="http://localhost/travel/controller/mediumpackage.php" class="view-all">Book Now<i class="fas fa-long-arrow-alt-right"></i></a>
                               </div>
                             </div>
                         </div>
@@ -98,7 +98,7 @@ include('../models/dbconnection.php');
                             <img src="../assets/images/tour-package-6.jpg" class="img-fluid person" alt="destination">
                             <div class="overlay">
                               <div class="overlay_shape">
-                                  <a href="" class="view-all">Book Now<i class="fas fa-long-arrow-alt-right"></i></a>
+                                  <a href="http://localhost/travel/controller/largepackage.php" class="view-all">Book Now<i class="fas fa-long-arrow-alt-right"></i></a>
                               </div>
                             </div>
                         </div>

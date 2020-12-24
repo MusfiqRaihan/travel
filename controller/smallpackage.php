@@ -14,7 +14,7 @@ include('../models/dbconnection.php');
  <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-     <title>Travel & Tourism - Book Hotel page</title>
+     <title>Travel & Tourism - Book Small Package page</title>
      <link rel="stylesheet" href="../assets/font/flaticon.css">
      <link rel="stylesheet" href="../assets/css/all.min.css">
      <link rel="stylesheet" href="../assets/css/animate.min.css">
@@ -51,7 +51,7 @@ include('../models/dbconnection.php');
 
             <div class="row">
               <div class="col-md-5">
-                <h4>Hotel Booking Procedure</h4>
+                <h4>Small Package Applying Procedure</h4>
 
               <?php
               $id = $_SESSION['logedin'];
@@ -78,17 +78,16 @@ include('../models/dbconnection.php');
                       $row = mysqli_fetch_array($query);
 
                       $user_id=$row['id'];
-                      $beds=$_POST['beds'];
-                      $type=$_POST['type'];
-                      $stay=$_POST['stay'];
-                      $arival=$_POST['arival'];
+                      $person=$_POST['person'];
+                      $fromplace=$_POST['fromplace'];
+                      $trip=$_POST['trip'];
+                      $month=$_POST['month'];
                       $address=$_POST['address'];
 
-                      $query=mysqli_query($con, "insert into hotel(user_id,beds,type,stay,arival,address)
-                       value('$user_id', '$beds', '$type', '$stay', '$arival', '$address')");
-
+                      $query=mysqli_query($con, "insert into spackage(user_id,person,fromplace,trip,month,address)
+                       value('$user_id', '$person', '$fromplace', '$trip', '$month', '$address')");
                       if ($query) {
-                          $msg="You have successfully booked bus tickets"; ?>
+                          $msg="You have successfully booked plane tickets"; ?>
                           <script type="text/javascript">
                             window.location = "http://localhost/travel/index.php";
                             </script>
@@ -106,62 +105,78 @@ include('../models/dbconnection.php');
 
 
                   <div class="row">
+
+
                     <div class="col-md-6">
-
-
                       <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                          <label class="input-group-text" for="inputGroupSelect01">Beds</label>
+                          <label class="input-group-text" for="inputGroupSelect01">Person</label>
                         </div>
-                        <select class="custom-select" id="inputGroupSelect01" name="beds">
+                        <select class="custom-select" id="inputGroupSelect01" name="person">
                           <option selected>Choose...</option>
-                          <option value="Single Bed">Single bed</option>
-                          <option value="Double Beds">Double Beds</option>
-                          <option value="Triple Beds">Triple Beds</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                          <option value="4">Four</option>
+                          <option value="5">Five</option>
                         </select>
                       </div>
-
-                      <!-- <div class="form-group">
-                          <input class="form-control" placeholder="Full Name" name="fullname" type="text" required="true">
-                      </div> -->
-
                     </div>
 
-                    <div class="col-md-6">
 
-                      <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline1" name="type" value="AC" class="custom-control-input">
-                        <label class="custom-control-label" for="customRadioInline1">AC</label>
-                      </div>
-                      <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline2" name="type" value="Non-AC" class="custom-control-input">
-                        <label class="custom-control-label" for="customRadioInline2">Non AC</label>
-                      </div>
-
-                    </div>
 
                     <div class="col-md-6">
-                      <div class="input-group" style="margin-top:32px;">
+                      <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                          <label class="input-group-text" for="inputGroupSelect01">Stayed</label>
+                          <label class="input-group-text" for="inputGroupSelect01">From</label>
                         </div>
-                        <select class="custom-select" id="inputGroupSelect01" name="stay">
+                        <select class="custom-select" id="inputGroupSelect01" name="fromplace">
                           <option selected>Choose...</option>
-                          <option value="One Night">One Night</option>
-                          <option value="Two Nights">Two Nights</option>
-                          <option value="Three Nights">Three Nights</option>
-                          <option value="Four Nights">Four Nights</option>
+                          <option value="Dhaka">Dhaka</option>
+                          <option value="Jessore">Jessore</option>
+                          <option value="Khulna">Khulna</option>
+                          <option value="Chittagong">Chittagong</option>
+                          <option value="Rajshahi">Rajshahi</option>
                         </select>
                       </div>
                     </div>
 
 
                     <div class="col-md-6">
-                      <div class="form-group">
-                        <label for="inputAddress">Date of Arrival</label>
-                        <input type="date" class="form-control" name="arival" id="inputAddress" placeholder="10/01/2021">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="inputGroupSelect01">Trip</label>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01" name="trip">
+                          <option selected>Choose...</option>
+                          <option value="Coxs Bazar">Cox's Bazar</option>
+                          <option value="Shylet">Shylet</option>
+                          <option value="Rangamati">Rangamati</option>
+                          <option value="Sajek">Sajek</option>
+                        </select>
                       </div>
                     </div>
+
+
+
+                    <div class="col-md-6">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="inputGroupSelect01">Month</label>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01" name="month">
+                          <option selected>Choose...</option>
+                          <option value="January">January</option>
+                          <option value="February">February</option>
+                          <option value="June">June</option>
+                          <option value="July">July</option>
+                          <option value="November">November</option>
+                          <option value="December">December</option>
+                        </select>
+                      </div>
+                    </div>
+
+
 
 
                     <div class="col-md-12">
@@ -172,10 +187,11 @@ include('../models/dbconnection.php');
                     </div>
 
 
+
                   </div>
 
                   <div class="text-center">
-                    <a href="http://localhost/travel/view/accomodation.php" class="btn btn-danger btn-style">Cancel</a>
+                    <a href="http://localhost/travel/view/tourpackage.php" class="btn btn-danger btn-style">Cancel</a>
                     <button type="submit" value="submit" name="submit" class="btn btn-success btn-stylesheet ml-2">Submit</button>
                   </div>
                 </form>
@@ -215,7 +231,6 @@ include('../models/dbconnection.php');
 </body>
 
 </html>
-
 
 
 <?php } ?>

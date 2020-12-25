@@ -1,10 +1,12 @@
 <?php
   session_start();
 include('../models/dbconnection.php');
+include('../includes/files.php');
 ?>
 
 <?php if (isset($_SESSION['logedin']) && $_SESSION['logedin'] != 0){
   $id = $_SESSION['logedin'];
+
   $query = mysqli_query($con, "SELECT fullname,email,mobilenumber FROM user where id='$id'");
   $row = mysqli_fetch_array($query);
    ?>
@@ -31,12 +33,12 @@ include('../models/dbconnection.php');
  </head>
 
  <body>
-
+<!--
      <div id="preloader">
          <div id="loading-center">
              <img src="../assets/images/white.gif" alt="">
          </div>
-     </div>
+     </div> -->
 
      <a href="#" id="back-top-btn">
         <i class="fas fa-angle-double-up"></i>
@@ -57,6 +59,7 @@ include('../models/dbconnection.php');
               $id = $_SESSION['logedin'];
               $query = mysqli_query($con, "SELECT fullname,email,mobilenumber FROM user where id='$id'");
               $row = mysqli_fetch_array($query);
+
               ?>
 
               <p style="padding-bottom:10px;padding-top:15px;">Name: <?php echo $row["fullname"] ?></p>
@@ -74,8 +77,10 @@ include('../models/dbconnection.php');
                   if(isset($_POST['submit']))
                     {
                       $id = $_SESSION['logedin'];
-                      $query = mysqli_query($con, "SELECT * FROM user where id='$id'");
-                      $row = mysqli_fetch_array($query);
+                      $userquery = mysqli_query($con, "SELECT * FROM user where id='$id'");
+                      $row = mysqli_fetch_array($userquery);
+
+
 
                       $user_id=$row['id'];
                       $seat=$_POST['seat'];
@@ -88,22 +93,25 @@ include('../models/dbconnection.php');
 
                       $query=mysqli_query($con, "insert into bus_ticket(user_id,seat,type,fromplace,toplace,startdate,returndate,address)
                        value('$user_id', '$seat', '$type', '$fromplace', '$toplace', '$startdate', '$returndate', '$address')");
-                      if ($query) {
-                          $msg="You have successfully booked bus tickets"; ?>
-                          <script type="text/javascript">
-                            window.location = "http://localhost/travel/index.php";
-                            </script>
-                  <?php  }
-                    else
-                      {
-                        $msg="Something Went Wrong. Please try again!";
-                      }
 
-                    echo $msg;
+                       if ($query) {
+                         $id = $_SESSION['logedin'];
+                         $bus_id = mysqli_insert_id($con);
+                         $_SESSION['bus_key']=$bus_id;
+                          ?>
+                         <script type="text/javascript">
+                           window.location = "http://localhost/travel/controller/tickettemplate.php";
+                         </script>
 
-                  }
-               ?>
-             </p>
+                        <?php } else {
+                         $msg="Something Went Wrong. Please try again!";
+                       }
+
+                     echo $msg;
+
+                   }
+                ?>
+              </p>
 
 
                   <div class="row">
@@ -124,10 +132,6 @@ include('../models/dbconnection.php');
                         </select>
                       </div>
 
-                      <!-- <div class="form-group">
-                          <input class="form-control" placeholder="Full Name" name="fullname" type="text" required="true">
-                      </div> -->
-
                     </div>
 
                     <div class="col-md-6">
@@ -137,13 +141,10 @@ include('../models/dbconnection.php');
                         <label class="custom-control-label" for="customRadioInline1">AC</label>
                       </div>
                       <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="customRadioInline2" name="type" value="NonAC" class="custom-control-input">
+                        <input type="radio" id="customRadioInline2" name="type" value="Non-AC" class="custom-control-input">
                         <label class="custom-control-label" for="customRadioInline2">Non AC</label>
                       </div>
 
-                      <!-- <div class="form-group">
-                        <input class="form-control" placeholder="E-mail" name="email" type="email" required="true">
-                      </div> -->
                     </div>
 
                     <div class="col-md-6">

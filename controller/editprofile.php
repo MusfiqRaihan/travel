@@ -1,5 +1,8 @@
 <?php
   session_start();
+  $_SESSION['plane_key']= 0;
+  $_SESSION['train_key']= 0;
+  $_SESSION['bus_key']= 0;
 include('../models/dbconnection.php');
 ?>
 

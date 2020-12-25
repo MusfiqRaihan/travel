@@ -1,6 +1,7 @@
 <?php
   session_start();
 include('../models/dbconnection.php');
+include('../includes/files.php');
 ?>
 
 <?php if (isset($_SESSION['logedin']) && $_SESSION['logedin'] != 0){
@@ -87,23 +88,24 @@ include('../models/dbconnection.php');
 
                       $query=mysqli_query($con, "insert into mpackage(user_id,person,fromplace,trip,month,address)
                        value('$user_id', '$person', '$fromplace', '$trip', '$month', '$address')");
-                      if ($query) {
-                          $msg="You have successfully booked plane tickets"; ?>
-                          <script type="text/javascript">
-                            window.location = "http://localhost/travel/index.php";
-                            </script>
-                  <?php  }
-                    else
-                      {
-                        $msg="Something Went Wrong. Please try again!";
-                      }
+                       if ($query) {
+                         $id = $_SESSION['logedin'];
+                         $mpackage_id = mysqli_insert_id($con);
+                         $_SESSION['mpackage_key']=$mpackage_id;
+                          ?>
+                         <script type="text/javascript">
+                           window.location = "http://localhost/travel/controller/packagetemplate.php";
+                         </script>
 
-                    echo $msg;
+                        <?php } else {
+                         $msg="Something Went Wrong. Please try again!";
+                       }
 
-                  }
-               ?>
-             </p>
+                     echo $msg;
 
+                   }
+                ?>
+              </p>
 
                   <div class="row">
 

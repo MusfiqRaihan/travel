@@ -1,6 +1,7 @@
 <?php
   session_start();
 include('../models/dbconnection.php');
+include('../includes/files.php');
 ?>
 
 <?php if (isset($_SESSION['logedin']) && $_SESSION['logedin'] != 0){

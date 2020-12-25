@@ -1,6 +1,7 @@
 <?php
   session_start();
 include('../models/dbconnection.php');
+include('../includes/files.php');
 ?>
 
 <?php if (isset($_SESSION['logedin']) && $_SESSION['logedin'] != 0){
@@ -75,8 +76,8 @@ include('../models/dbconnection.php');
                   if(isset($_POST['submit']))
                     {
                       $id = $_SESSION['logedin'];
-                      $query = mysqli_query($con, "SELECT * FROM user where id='$id'");
-                      $row = mysqli_fetch_array($query);
+                      $userquery = mysqli_query($con, "SELECT * FROM user where id='$id'");
+                      $row = mysqli_fetch_array($userquery);
 
                       $user_id=$row['id'];
                       $seat=$_POST['seat'];
@@ -89,22 +90,25 @@ include('../models/dbconnection.php');
 
                       $query=mysqli_query($con, "insert into plane_ticket(user_id,seat,type,fromplace,toplace,startdate,returndate,address)
                        value('$user_id', '$seat', '$type', '$fromplace', '$toplace', '$startdate', '$returndate', '$address')");
-                      if ($query) {
-                          $msg="You have successfully booked plane tickets"; ?>
-                          <script type="text/javascript">
-                            window.location = "http://localhost/travel/index.php";
-                            </script>
-                  <?php  }
-                    else
-                      {
-                        $msg="Something Went Wrong. Please try again!";
-                      }
 
-                    echo $msg;
+                       if ($query) {
+                         $id = $_SESSION['logedin'];
+                         $plane_id = mysqli_insert_id($con);
+           							 $_SESSION['plane_key']=$plane_id;
+                          ?>
+                         <script type="text/javascript">
+                           window.location = "http://localhost/travel/controller/tickettemplate.php";
+                         </script>
 
-                  }
-               ?>
-             </p>
+                        <?php } else {
+                         $msg="Something Went Wrong. Please try again!";
+                       }
+
+                     echo $msg;
+
+                   }
+                ?>
+              </p>
 
 
                   <div class="row">

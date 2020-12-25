@@ -1,6 +1,7 @@
 <?php
   session_start();
 include('models/dbconnection.php');
+include('includes/files.php');
 ?>
 
 
